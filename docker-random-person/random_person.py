@@ -1,6 +1,7 @@
 import random
 import time
 
+
 # Open the text file containing the list of people
 with open('people.txt', 'r') as file:
     people_list = file.read().splitlines()
@@ -57,4 +58,4 @@ for _ in range(3):
 random_person = random.choice(people_list)
 
 # Print the randomly selected person
-print(f"{random_person}")
+print(f"The randomly selected person is: {random_person}")
