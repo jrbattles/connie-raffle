@@ -31,9 +31,17 @@ language = 'en'
 # have a high speed
 myobj = gTTS(text=mytext01, lang=language, slow=False)
 
+# # Saving the converted audio in a mp3 file named
+# # welcome
+# myobj.save("text01.mp3")
+
+# # Playing the converted file
+# os.system("mpg321 text01.mp3")
+
+
 # Saving the converted audio in a mp3 file named
 # welcome
-myobj.save("text01.mp3")
+myobj.save("/app/text01.mp3")
 
 # Playing the converted file
-os.system("mpg321 text01.mp3")
+os.system("aplay /app/text01.mp3")
