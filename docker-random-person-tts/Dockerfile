@@ -34,7 +34,8 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN apt-get update && apt-get install -y alsa-utils mpg321
+# RUN apt-get update && apt-get install -y alsa-utils mpg321 pulseaudio
+RUN apt-get update && apt-get install -y sox libsox-fmt-all
 RUN pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt
 
 # Run the script when the container launches

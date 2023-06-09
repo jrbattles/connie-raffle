@@ -44,4 +44,9 @@ myobj = gTTS(text=mytext01, lang=language, slow=False)
 myobj.save("/app/text01.mp3")
 
 # Playing the converted file
-os.system("aplay /app/text01.mp3")
+#os.system("aplay /app/text01.mp3")
+
+# Playing the converted file using sox command
+#os.system("sox -q -t mp3 text01.mp3 -t wav - | play -q -t wav -")
+os.system("sox text01.mp3 -d")
+
