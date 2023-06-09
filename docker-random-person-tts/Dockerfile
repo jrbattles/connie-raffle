@@ -26,19 +26,22 @@
 
 # Use an official Python runtime as a parent image
 FROM python:3.8-slim-buster
+# Use the official Python image as the base image
+FROM python:3.9-slim
 
-# Set the working directory to /app
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy the Python requirements file to the container
+COPY requirements.txt .
 
-# Install any needed packages specified in requirements.txt
-# RUN apt-get update && apt-get install -y alsa-utils mpg321 pulseaudio
-RUN apt-get update && apt-get install -y sox libsox-fmt-all
-RUN pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt
+# Install the Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Run the script when the container launches
-CMD ["python", "random_person_tts.py"]
+# Copy the Python script to the container
+COPY 01-ConnieIntro.py .
+
+# Run the Python script when the container starts
+CMD ["python", "01-ConnieIntro.py"]
 
 
